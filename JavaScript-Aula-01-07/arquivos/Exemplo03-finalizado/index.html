@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-r">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>JavaScript</title>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .photo-wrapper {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- titulo -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <div class="page-header">
+                    <h1>CatClicker</h1>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- photo -->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-6 col-md-offset-3 text-center js-photo-container">
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // dados 
+        var dados = [
+            {
+                img: 'https://cdn.pixabay.com/photo/2017/04/30/18/33/cat-2273598_960_720.jpg',
+                like: 0,
+                dislike: 0
+            },
+            {
+                img: 'https://s2.best-wallpaper.net/wallpaper/1920x1200/1201/Curious-cat_1920x1200.jpg',
+                like: 0,
+                dislike: 0
+            },
+            {
+                img: 'https://i.pinimg.com/originals/88/db/59/88db592de9e183d67b77566ad563974a.jpg',
+                like: 0,
+                dislike: 0
+            },
+        ];
+
+        // evento de onload
+        $(function () {
+            renderPhotos(dados);
+        });
+
+        // renderiza as fotos
+        function renderPhotos(dados) {
+
+            var photoContainer = $('.js-photo-container');
+
+            photoContainer.empty();
+
+            for (let i in dados) {
+
+                var photoWrapper = $("<div>").addClass('photo-wrapper');
+
+                // cria o objeto imagem
+                var photoImg = $("<img/>").attr('src', dados[i].img).addClass('img-responsive img-thumbnail');
+
+                // cria o button de nao gostei
+                var btnNaoGostei = $("<button></button>").addClass('btn btn-danger').attr('title', 'Não gostei');
+                var spanIconNaoGostei = $('<span></span>').addClass('glyphicon glyphicon-thumbs-down');
+                var spanNumberNaoGostei = $('<span></span>').text(dados[i].dislike);
+
+                // cria o button de gostei
+                var btnGostei = $("<button></button>").addClass('btn btn-success').attr('title', 'Gostei');
+                var spanIconGostei = $('<span></span>').addClass('glyphicon glyphicon-thumbs-up');
+                var spanNumberGostei = $('<span></span>').text(dados[i].like);
+
+                // cria o evento de clicar ao button nao gostei
+                btnGostei.on('click', { key: i }, function (e) {
+                    dados[e.data.key].like = dados[e.data.key].like + 1;
+                    renderPhotos(dados);
+                });
+
+                // cria o evento de clicar ao button gostei
+                btnNaoGostei.on('click', { key: i }, function (e) {
+                    dados[e.data.key].dislike = dados[e.data.key].dislike + 1;
+                    renderPhotos(dados);
+                });
+
+                // adiciona os spans ao button nao gostei
+                btnNaoGostei.append(spanIconNaoGostei, spanNumberNaoGostei);
+
+                // adiciona os spans ao button gostei
+                btnGostei.append(spanIconGostei, spanNumberGostei);
+
+                // adiciona a imagem e os buttons ao wrapper
+                photoWrapper.append(photoImg, btnNaoGostei, btnGostei);
+
+                // adiciona o wrapper ao container
+                photoContainer.append(photoWrapper);
+            }
+        };
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>APoD</title>
+    <meta name="description" content="APoD">
+    <meta name="author" content="benevenuti">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script src="js/ba-tiny-pubsub.min.js"></script>
+    <link rel="stylesheet" href="apod.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="page-header">
+                    <h1>APoD</h1>
+                    <h6 class="">Astronomy Picture of the Day</h6>
+                </div>
+                <div class="well text-center js-loader">Carregando...</div>
+
+                <div class="thumbnail js-day-image hide">
+                    <img src="" alt="" class="js-image-url">
+                    <div class="caption">
+                        <h3 class="js-title"></h3>
+                        <p class="js-explanation"></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="js/photo.js"></script>
+</body>
+
+</html>

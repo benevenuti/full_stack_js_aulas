@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Estudo dirigido de JavaScript</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <div class="page-header">
+                    <h1>Estudo Dirigido de JavaScript</h1>
+                </div>
+
+                <h2>Introdução</h2>
+
+                <ul>
+
+                    <li>
+                        <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript" target="_blank">
+                            O que é JavaScript?
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://medium.com/swlh/everything-you-can-do-with-javascript-d7ea1de9b891" target="_blank">
+                            O que podemos fazer com JavaScript?
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://codeburst.io/javascript-wtf-is-es6-es8-es-2017-ecmascript-dca859e4821c" target="_blank">
+                            E o tal ECMAScript?
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://insights.stackoverflow.com/survey/2019#technology-_-programming-scripting-and-markup-languages" target="_blank">
+                            Vale a pena aprender JavaScript?
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://www.quora.com/What-is-a-JavaScript-framework" target="_blank">
+                            Um pouco sobre Bibliotecas e Frameworks
+                        </a>                        
+                    </li>
+
+                </ul>
+
+                <h2>Projeto 1 - "ClickCat"</h2>
+
+                <p>
+                    Um cliente ganhou um gatinho de presente e tirou uma foto bem bacana do mesmo, e ele deseja um software onde as pessoas possam dizer se curtiram ou não a foto de seu gatinho. Adivinha quem foi o premiado para desenvolver este revolucionário programa de computador? Você mesmo!
+                </p>
+
+                <p>
+                    Veja o exemplo final <a href="arquivos/Exemplo01-finalizado.zip"> clicando aqui</a>.
+                </p>
+
+                <p>
+                    Etapas para o desenvolvimento do software:
+                </p>
+
+                <p>
+
+                    <ul>
+                        <li>
+                            Criar um arquivo HTML contendo Bootstrap e suas dependências. (O starter kit você encontra <a href="arquivos/Exemplo01-starterKit.zip">clicando aqui!</a>)
+                        </li>
+                        <li>
+                            Criar um código JavaScript que, ao clicar no botão "Gostei" ou "Não Gostei" apenas incremente o valor do button clicado. Fácil não!?
+                        </li>
+                    </ul>
+
+                </p>
+                <hr>
+                <p>
+                    <h3>Selecionar os objetos que você quer manipular</h3>
+                    <pre>
+var btnGostei = document.getElementById('btn-gostei');
+var btnNaoGostei = document.getElementById('btn-nao-gostei');
+var spanGostei = document.getElementById('span-gostei');
+var spanNaoGostei = document.getElementById('span-nao-gostei');
+                    </pre>
+
+                    <p>
+                        Aproveite para ler um pouco sobre <a href="https://gomakethings.com/javascript-selectors-in-html/" target="_blank">seletores</a>!
+                    </p>
+
+                    <h3>Criar a ação do botão de "Gostei"</h3>
+                    <pre>
+btnGostei.onclick = function(){
+    console.log('Button Gostei Pressionado!');
+
+    var valorGostei = parseInt(spanGostei.innerText); // pega o conteudo da span
+    valorGostei = valorGostei + 1; // adiciona mais um
+
+    console.log(valorGostei); // printa o valor
+    spanGostei.innerText = valorGostei;
+};
+                    </pre>
+
+                    <h3>Criar a ação do botão de "Não Gostei"</h3>
+                    <pre>
+btnNaoGostei.onclick = function(){
+    console.log('Button Não Gostei Pressionado!');
+
+    var valorNaoGostei = parseInt(spanNaoGostei.innerText); // pega o conteudo da span
+    valorNaoGostei = valorNaoGostei + 1; // adiciona mais um
+
+    console.log(valorNaoGostei); // printa o valor
+    spanNaoGostei.innerText = valorNaoGostei;
+}
+                    </pre>
+                    
+                </p>
+
+                <hr>
+
+                <p>
+                    Fácil não é mesmo?
+                </p>
+
+                <hr>
+
+                <a href="passo-02.html" class="btn btn-primary">Avançar para a próxima etapa</a>
+                
+                <hr>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  
+    </body>
+</html>
